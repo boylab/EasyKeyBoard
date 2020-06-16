@@ -105,10 +105,8 @@ public class MyKeyBoardView extends KeyboardView {
                 paint.setTypeface(Typeface.DEFAULT);
             }
 
-            paint.getTextBounds(key.label.toString(), 0, key.label.toString()
-                    .length(), bounds);
-            canvas.drawText(key.label.toString(), key.x + (key.width / 2),
-                    (key.y + key.height / 2) + bounds.height() / 2, paint);
+            paint.getTextBounds(key.label.toString(), 0, key.label.toString().length(), bounds);
+            canvas.drawText(key.label.toString(), key.x + (key.width / 2), (key.y + key.height / 2) + bounds.height() / 2, paint);
         } else if (key.icon != null) {
             key.icon.setBounds(key.x + (key.width - key.icon.getIntrinsicWidth()) / 2, key.y + (key.height - key.icon.getIntrinsicHeight()) / 2,
                     key.x + (key.width - key.icon.getIntrinsicWidth()) / 2 + key.icon.getIntrinsicWidth(), key.y + (key.height - key.icon.getIntrinsicHeight()) / 2 + key.icon.getIntrinsicHeight());

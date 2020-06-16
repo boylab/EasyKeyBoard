@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         KeyboardNumber keyboardNumberRandom = new KeyboardNumber(this, true, false);
         KeyboardUtils.bindEditTextEvent(keyboardNumberRandom, et_4);
 
-
         keyboardIdentity.setOnOkClick(new BaseKeyboard.OnOkClick() {
             @Override
             public void onOkClick() {
