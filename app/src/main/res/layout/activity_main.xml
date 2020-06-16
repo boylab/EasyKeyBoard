@@ -15,29 +15,35 @@
             android:id="@+id/et_1"
             android:hint="identity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
 
         <EditText
             android:id="@+id/et_2"
             android:hint="ip address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
 
         <EditText
             android:id="@+id/et_3"
             android:hint="number"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
+
         <EditText
             android:id="@+id/et_4"
             android:hint="number with random"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:focusable="false"/>
     </LinearLayout>
 
     <include
         layout="@layout/layout_keyboardview"
-        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"/>
 </RelativeLayout>
