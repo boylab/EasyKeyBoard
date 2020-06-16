@@ -87,10 +87,8 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
             @Override
             public void onClick(View v) {
                 final String number = getInput(mNumbersTextView);
-                if (number.length() == mNumbersTextView.length){
-                    mOnKeyActionListener.onFinish(number);
-                    dismiss();
-                }
+                mOnKeyActionListener.onFinish(number);
+                dismiss();
             }
         });
     }
@@ -98,7 +96,7 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
     public void setDefaultPlateNumber(String number) {
         if (!TextUtils.isEmpty(number)) {
             if (number.startsWith(WJ_PREFIX)) {
-                mDefaultPlateNumber = "武" + number.substring(number.length() > 2 ? 2 : 0);
+                mDefaultPlateNumber = "沪" + number.substring(number.length() > 2 ? 2 : 0);
             }else{
                 mDefaultPlateNumber = number;
             }
