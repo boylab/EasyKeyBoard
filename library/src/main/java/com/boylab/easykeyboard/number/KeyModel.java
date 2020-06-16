@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard;
+package com.boylab.easykeyboard.number;
 
 public class KeyModel {
 

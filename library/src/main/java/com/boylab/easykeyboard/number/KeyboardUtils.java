@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard;
+package com.boylab.easykeyboard.number;
 
 import android.view.View;
 import android.widget.EditText;
@@ -21,8 +21,11 @@ public class KeyboardUtils {
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (customKeyboard.isAttached) customKeyboard.showKeyboard();
-                else customKeyboard.attachTo(editText);
+                if (customKeyboard.isAttached) {
+                    customKeyboard.showKeyboard();
+                } else{
+                    customKeyboard.attachTo(editText);
+                }
             }
         });
     }

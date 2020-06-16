@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard;
+package com.boylab.easykeyboard.number;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -11,6 +11,8 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.Keyboard.Key;
 import android.inputmethodservice.KeyboardView;
 import android.util.AttributeSet;
+
+import com.boylab.easykeyboard.R;
 
 import java.lang.reflect.Field;
 import java.util.List;

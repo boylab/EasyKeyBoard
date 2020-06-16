@@ -15,30 +15,56 @@
             android:id="@+id/et_1"
             android:hint="identity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"/>
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/et_2"
             android:hint="ip address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"/>
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/et_3"
             android:hint="number"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"/>
+            android:layout_height="wrap_content"/>
 
         <EditText
             android:id="@+id/et_4"
             android:hint="number with random"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"/>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:orientation="vertical"
+        tools:context="com.github.yoojia.keyboard.app.MainActivity">
+
+        <TextView
+            android:id="@+id/display"
+            android:text="DISPLAY1"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/vehicle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="车牌号专用键盘" />
+
+        <Button
+            android:id="@+id/number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="密码键盘" />
+
+    </LinearLayout>
+
 
     <include
         layout="@layout/layout_keyboardview"

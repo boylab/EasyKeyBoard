@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard;
+package com.boylab.easykeyboard.number;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.text.InputType;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import com.boylab.easykeyboard.R;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -30,6 +32,14 @@ public class BaseKeyboard {
     int layoutResId;
     boolean mIfRandom;
     public boolean isAttached;
+
+    public boolean isAttached() {
+        return isAttached;
+    }
+
+    public void setAttached(boolean attached) {
+        isAttached = attached;
+    }
 
     public void init(Activity activity, int layoutResId) {
         this.mActivity = activity;
