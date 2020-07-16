@@ -34,7 +34,7 @@ public class IPKeyboard extends AbstractKeyboard{
     }
 
     public void initKeyBoard(){
-        final View contentView = putContentView(R.layout.keyboard_number);
+        final View contentView = putContentView(R.layout.keyboard_ip);
 
         text_Input = contentView.findViewById(R.id.text_Input);
 

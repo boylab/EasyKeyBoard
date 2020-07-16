@@ -26,7 +26,7 @@ public class IdentityKeyboard extends AbstractKeyboard{
     }
 
     public void initKeyBoard(){
-        final View contentView = putContentView(R.layout.keyboard_number);
+        final View contentView = putContentView(R.layout.keyboard_identity);
 
         text_Input = contentView.findViewById(R.id.text_Input);
 

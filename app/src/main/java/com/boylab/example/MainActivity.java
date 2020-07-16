@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        display = (TextView) findViewById(R.id.display);
+        display = findViewById(R.id.display);
 
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,10 +39,8 @@ public class MainActivity extends AppCompatActivity {
                         display.setText("Processing: " + input);
                     }
                 });
-
             }
         });
-
 
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
