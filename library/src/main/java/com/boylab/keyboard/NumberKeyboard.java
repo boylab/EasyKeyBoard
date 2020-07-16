@@ -51,7 +51,7 @@ public class NumberKeyboard extends AbstractKeyboard{
                     }else{
                         text_Input.setText(number.substring(0, number.length() -1));
                     }
-
+                    number = text_Input.getText().toString();
                     if (mOnKeyActionListener != null){
                         mOnKeyActionListener.onProcess(number);
                     }

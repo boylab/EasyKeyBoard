@@ -6,6 +6,7 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.boylab.easykeyboard.R;
@@ -44,7 +45,7 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
     public VehiclePlateKeyboard(Context context, String defaultPlate, OnKeyActionListener keyActionListener) {
         super(context, keyActionListener);
 
-        final View contentView = putContentView(R.layout.keyboard_vehicle_plate);
+        final View contentView = putContentView(R.layout.keyboard_vehicle_plate, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         mNumbersTextView[0] = (TextView) contentView.findViewById(R.id.keyboard_number_0);
         mNumbersTextView[1] = (TextView) contentView.findViewById(R.id.keyboard_number_1);

@@ -35,6 +35,15 @@ class AbstractKeyboard {
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null));
     }
 
+    protected View putContentView(int layoutResId, int width, int height) {
+        mPopupWindow.setWidth(width);
+        mPopupWindow.setHeight(height);
+
+        final View view = LayoutInflater.from(mContext).inflate(layoutResId,null);
+        mPopupWindow.setContentView(view);
+        return view;
+    }
+
     protected View putContentView(int layoutResId) {
         final View view = LayoutInflater.from(mContext).inflate(layoutResId,null);
         mPopupWindow.setContentView(view);

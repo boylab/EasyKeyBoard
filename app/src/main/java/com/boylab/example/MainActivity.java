@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EasyKeyBoard.bindCarPlate(MainActivity.this, new OnKeyActionListener(){
+                EasyKeyBoard.bindCarPlate(MainActivity.this,"武J12345", new OnKeyActionListener(){
 
                     @Override
                     public void onFinish(String input) {
@@ -39,20 +39,6 @@ public class MainActivity extends AppCompatActivity {
                         display.setText("Processing: " + input);
                     }
                 });
-
-
-                VehiclePlateKeyboard keyboard = new VehiclePlateKeyboard(MainActivity.this, "",new OnKeyActionListener() {
-                    @Override
-                    public void onFinish(String input) {
-                        display.setText(input);
-                    }
-
-                    @Override
-                    public void onProcess(String input) {
-                        display.setText("Processing: " + input);
-                    }
-                });
-                keyboard.setDefaultPlateNumber("武J12345");
 
             }
         });
@@ -79,7 +65,17 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EasyKeyBoard.bindDecimal(MainActivity.this, 4,2,new OnKeyActionListener() {
+                    @Override
+                    public void onFinish(String input) {
+                        Log.i(">>>boylab>>", ">>>onFinish: "+input);
+                    }
 
+                    @Override
+                    public void onProcess(String input) {
+                        display.setText("Processing: " + input);
+                    }
+                });
             }
         });
 

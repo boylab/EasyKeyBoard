@@ -5,6 +5,7 @@ import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -19,7 +20,7 @@ public class DecimalKeyboard extends AbstractKeyboard{
     private TextView mSelectedTextView;
 
     private int maxIntLen = 6, pointLen = 2;
-    private boolean addPoint = false;
+    private boolean isAddPoint = false;
 
     public DecimalKeyboard(Context context,  int maxIntLen, int pointLen, OnKeyActionListener commitListener) {
         super(context, commitListener);
@@ -56,9 +57,11 @@ public class DecimalKeyboard extends AbstractKeyboard{
                     String number = text_Input.getText().toString();
                     if (TextUtils.isEmpty(number)){
                         return;
-                    }else{
+                    }else {
                         text_Input.setText(number.substring(0, number.length() -1));
                     }
+                    number = text_Input.getText().toString();
+                    isAddPoint = number.contains(".");
 
                     if (mOnKeyActionListener != null){
                         mOnKeyActionListener.onProcess(number);
@@ -69,14 +72,35 @@ public class DecimalKeyboard extends AbstractKeyboard{
                         mOnKeyActionListener.onFinish(number);
                     }
                     dismiss();
-                }else {
-                    String number = text_Input.getText().toString();
-                    if (number.length() >= maxLen){
-                        text_Input.setText(number.substring(number.length() - maxLen + 1));
-                        text_Input.append(Character.toString((char) charCode));
+                }else if (charCode == '.'){
+                    if (isAddPoint){
+                        return;
                     }else {
                         text_Input.append(Character.toString((char) charCode));
                     }
+                    String number = text_Input.getText().toString();
+                    isAddPoint = number.contains(".");
+                    if (mOnKeyActionListener != null){
+                        mOnKeyActionListener.onProcess(number);
+                    }
+                }else {
+                    String number = text_Input.getText().toString();
+                    if (isAddPoint){
+                        int indexPoint = number.lastIndexOf(".");
+                        if (number.length() - indexPoint - 1 >= pointLen){
+                            return;
+                        }else {
+                            text_Input.append(Character.toString((char) charCode));
+                        }
+                    }else {
+                        if (number.length() >= maxIntLen){
+                            text_Input.setText(number.substring(number.length() - maxIntLen + 1));
+                            text_Input.append(Character.toString((char) charCode));
+                        }else {
+                            text_Input.append(Character.toString((char) charCode));
+                        }
+                    }
+
                     number = text_Input.getText().toString();
                     if (mOnKeyActionListener != null){
                         mOnKeyActionListener.onProcess(number);
@@ -92,7 +116,6 @@ public class DecimalKeyboard extends AbstractKeyboard{
     protected void onShow() {
         text_Input.performClick();
     }
-
 
     private View.OnClickListener createNumberListener() {
         return new View.OnClickListener() {
@@ -110,12 +133,12 @@ public class DecimalKeyboard extends AbstractKeyboard{
 
 
 
-    public static void show(Activity context, OnKeyActionListener listener) {
+    public static void show(Activity context, int maxIntLen, int pointLen, OnKeyActionListener listener) {
         View v= context.getWindow().getDecorView().getRootView();
-        new DecimalKeyboard(context, listener).show(v);
+        new DecimalKeyboard(context, maxIntLen, pointLen, listener).show(v);
     }
 
-    public static DecimalKeyboard create(Context context, OnKeyActionListener listener) {
-        return new DecimalKeyboard(context, listener);
+    public static DecimalKeyboard create(Context context, int maxIntLen, int pointLen, OnKeyActionListener listener) {
+        return new DecimalKeyboard(context, maxIntLen, pointLen, listener);
     }
 }
