@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard.number;
+package com.boylab.number;
 
 import android.app.Activity;
 import android.content.Context;
@@ -85,7 +85,6 @@ public class BaseKeyboard {
         mKeyboardView.setPreviewEnabled(false);
         mKeyboardView.setVisibility(View.VISIBLE);
         mKeyboardView.setOnKeyboardActionListener(mOnKeyboardActionListener);
-
     }
 
     private KeyboardView.OnKeyboardActionListener mOnKeyboardActionListener = new KeyboardView.OnKeyboardActionListener() {

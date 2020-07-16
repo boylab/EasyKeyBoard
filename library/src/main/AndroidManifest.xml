@@ -2,4 +2,5 @@
     package="com.boylab.easykeyboard">
 
     /
+    <uses-permission android:name="android.permission.VIBRATE" />
 </manifest>

@@ -2,4 +2,8 @@
 <resources>
     <color name="key_ok_color">#1280FA</color>
     <color name="key_ok_color_pressed">#0174f2</color>
+
+    <color name="key_board_bg">#E1A6A4A4</color>
+    <color name="key_plate_sharp">#E15E5A5A</color>
+
 </resources>

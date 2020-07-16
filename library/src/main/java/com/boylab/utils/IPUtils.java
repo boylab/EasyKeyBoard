@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard.utils;
+package com.boylab.utils;
 
 import java.util.regex.Pattern;
 

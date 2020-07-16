@@ -1,9 +1,10 @@
-package com.boylab.easykeyboard.car;
+package com.boylab.keyboard;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.provider.Contacts;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,7 +19,7 @@ import android.widget.TextView;
  */
 class AbstractKeyboard {
 
-    private final Context mContext;
+    protected final Context mContext;
     private final PopupWindow mPopupWindow;
     protected final OnKeyActionListener mOnKeyActionListener;
 
@@ -28,7 +29,7 @@ class AbstractKeyboard {
             throw new NullPointerException("onKeyActionListener == null");
         }
         mOnKeyActionListener = onKeyActionListener;
-        mPopupWindow = new PopupWindow(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        mPopupWindow = new PopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mPopupWindow.setFocusable(true);
         mPopupWindow.setOutsideTouchable(false);
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null));
@@ -49,9 +50,18 @@ class AbstractKeyboard {
     }
 
     protected void onShow(){ }
+    protected void onFilter(){ }
 
     public void dismiss(){
         mPopupWindow.dismiss();
+    }
+
+    public void beep(Context context){
+        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            VibrationEffect vibe = VibrationEffect.createWaveform(new long[]{0,60},-1);
+            vibrator.vibrate(vibe);
+        }
     }
 
     protected String getInput(TextView[] inputs) {

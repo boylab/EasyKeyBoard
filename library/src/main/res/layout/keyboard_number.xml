@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/key_board_bg">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@drawable/sharp_key_board"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="20dp">
+
+        <TextView
+            android:id="@+id/text_Input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/keyboard_view"
+            android:layout_alignRight="@+id/keyboard_view"
+            android:background="@drawable/sharp_text_input"
+            android:gravity="center_vertical|right"
+            android:padding="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="25sp" />
+
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboard_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_Input"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/keyboard_background"
+            android:focusable="true"
+            android:keyBackground="@drawable/keyboard_bg_key"
+            android:keyTextColor="@color/keyboard_key_text"
+            android:keyTextSize="25sp"
+            android:paddingBottom="1dp"
+            android:shadowColor="@android:color/darker_gray"
+            android:shadowRadius="0" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+

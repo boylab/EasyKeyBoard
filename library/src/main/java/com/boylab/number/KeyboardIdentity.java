@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard.number;
+package com.boylab.number;
 
 import android.app.Activity;
 

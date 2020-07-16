@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard.car;
+package com.boylab.keyboard;
 
 import android.app.Activity;
 import android.content.Context;

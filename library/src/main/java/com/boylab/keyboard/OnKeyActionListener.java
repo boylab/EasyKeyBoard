@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard.car;
+package com.boylab.keyboard;
 
 /**
  * @author  yoojia.chen@gmail.com
@@ -6,6 +6,17 @@ package com.boylab.easykeyboard.car;
  * @since   1.6
  */
 public interface OnKeyActionListener {
+    /**
+     * 输入前预置
+     * @param input 预置内容
+     */
+    //void onStart(String input);
+
+    /**
+     * 输入过程中的数据
+     * @param input 当前已经输入的内容
+     */
+    void onProcess(String input);
 
     /**
      * 输入完成并提交
@@ -13,9 +24,4 @@ public interface OnKeyActionListener {
      */
     void onFinish(String input);
 
-    /**
-     * 输入过程中的数据
-     * @param input 当前已经输入的内容
-     */
-    void onProcess(String input);
 }

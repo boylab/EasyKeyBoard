@@ -1,4 +1,4 @@
-package com.boylab.easykeyboard.car;
+package com.boylab.keyboard;
 
 import android.app.Activity;
 import android.content.Context;
@@ -41,7 +41,7 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
 
     private String mDefaultPlateNumber;
 
-    public VehiclePlateKeyboard(Context context, OnKeyActionListener keyActionListener) {
+    public VehiclePlateKeyboard(Context context, String defaultPlate, OnKeyActionListener keyActionListener) {
         super(context, keyActionListener);
 
         final View contentView = putContentView(R.layout.keyboard_vehicle_plate);
@@ -91,6 +91,8 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
                 dismiss();
             }
         });
+
+        setDefaultPlateNumber(defaultPlate);
     }
 
     public void setDefaultPlateNumber(String number) {
@@ -190,12 +192,12 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
         return number.replace("武", WJ_PREFIX);
     }
 
-    public static void show(Activity activity, OnKeyActionListener listener) {
-        new VehiclePlateKeyboard(activity, listener).show(activity.getWindow().getDecorView().getRootView());
+    public static void show(Activity activity, String defaultPlate,OnKeyActionListener listener) {
+        new VehiclePlateKeyboard(activity, defaultPlate, listener).show(activity.getWindow().getDecorView().getRootView());
     }
 
-    public static VehiclePlateKeyboard create(Context context, OnKeyActionListener listener) {
-        return new VehiclePlateKeyboard(context, listener);
+    public static VehiclePlateKeyboard create(Context context, String defaultPlate,OnKeyActionListener listener) {
+        return new VehiclePlateKeyboard(context, defaultPlate, listener);
     }
 
 }

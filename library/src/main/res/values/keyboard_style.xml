@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="keyboard_key_gap">1.2dp</dimen>
+    <dimen name="keyboard_key_gap">2dp</dimen>
     <dimen name="keyboard_key_radius">5dp</dimen>
     <dimen name="keyboard_key_height">42dp</dimen>
+    <dimen name="keyboard_key_double_height">42dp</dimen>
 
     <color name="keyboard_background">#CDCFD3</color>
     <color name="keyboard_key_frontend_color_normal">#F9FAFA</color>
