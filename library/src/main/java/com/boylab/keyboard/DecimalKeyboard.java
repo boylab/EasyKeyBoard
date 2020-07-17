@@ -70,6 +70,7 @@ public class DecimalKeyboard extends AbstractKeyboard{
                     String number = text_Input.getText().toString();
 
                     if (TextUtils.isEmpty(number)){
+                        dismiss();
                         return;
                     }
                     if (mOnKeyActionListener != null){

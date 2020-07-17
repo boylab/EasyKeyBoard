@@ -58,6 +58,7 @@ public class NumberKeyboard extends AbstractKeyboard{
                 }else if (charCode == Keyboard.KEYCODE_DONE){
                     String number = text_Input.getText().toString();
                     if (TextUtils.isEmpty(number)){
+                        dismiss();
                         return;
                     }
 
