@@ -68,6 +68,10 @@ public class DecimalKeyboard extends AbstractKeyboard{
                     }
                 }else if (charCode == Keyboard.KEYCODE_DONE){
                     String number = text_Input.getText().toString();
+
+                    if (TextUtils.isEmpty(number)){
+                        return;
+                    }
                     if (mOnKeyActionListener != null){
                         mOnKeyActionListener.onFinish(number);
                     }
