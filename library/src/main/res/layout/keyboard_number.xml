@@ -35,7 +35,7 @@
             android:focusable="true"
             android:keyBackground="@drawable/keyboard_bg_key"
             android:keyTextColor="@color/keyboard_key_text"
-            android:keyTextSize="25sp"
+            android:keyTextSize="30sp"
             android:paddingBottom="1dp"
             android:shadowColor="@android:color/darker_gray"
             android:shadowRadius="0" />

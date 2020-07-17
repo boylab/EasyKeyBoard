@@ -104,9 +104,6 @@ public class NumberKeyboard extends AbstractKeyboard{
         };
     }
 
-
-
-
     public static void show(Activity context, int maxLen, OnKeyActionListener listener) {
         View v= context.getWindow().getDecorView().getRootView();
         new NumberKeyboard(context, maxLen, listener).show(v);

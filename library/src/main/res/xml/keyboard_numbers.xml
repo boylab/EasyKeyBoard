@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="8%p"
-    android:keyHeight="8%p">
+    android:keyHeight="10%p">
 
     <Row>
         <Key
@@ -16,7 +16,7 @@
             android:keyLabel="3" />
         <Key
             android:codes="-3"
-            android:keyHeight="16%p"
+            android:keyHeight="20%p"
             android:keyEdgeFlags="right"
             android:keyLabel="ESC" />
 
@@ -48,7 +48,7 @@
             android:keyLabel="9" />
         <Key
             android:codes="-4"
-            android:keyHeight="16%p"
+            android:keyHeight="20%p"
             android:keyEdgeFlags="right"
             android:keyLabel="确定" />
     </Row>

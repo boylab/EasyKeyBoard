@@ -7,10 +7,10 @@
         android:id="@+id/ll_PassWord"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@color/keyboard_background"
         android:layout_alignLeft="@+id/keyboard_view"
         android:layout_alignRight="@+id/keyboard_view"
+        android:layout_centerHorizontal="true"
+        android:background="@color/keyboard_background"
         android:orientation="horizontal">
 
         <TextView
@@ -50,6 +50,7 @@
         android:focusableInTouchMode="true"
         android:keyBackground="@drawable/keyboard_bg_key"
         android:keyTextColor="@color/keyboard_key_text"
+        android:keyTextSize="30sp"
         android:paddingBottom="1dp"
         android:shadowRadius="0" />
 
