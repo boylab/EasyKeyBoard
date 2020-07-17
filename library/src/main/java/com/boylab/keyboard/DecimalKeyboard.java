@@ -76,7 +76,12 @@ public class DecimalKeyboard extends AbstractKeyboard{
                     if (isAddPoint){
                         return;
                     }else {
-                        text_Input.append(Character.toString((char) charCode));
+                        String number = text_Input.getText().toString();
+                        if (TextUtils.isEmpty(number)){
+                            return;
+                        }else {
+                            text_Input.append(Character.toString((char) charCode));
+                        }
                     }
                     String number = text_Input.getText().toString();
                     isAddPoint = number.contains(".");
