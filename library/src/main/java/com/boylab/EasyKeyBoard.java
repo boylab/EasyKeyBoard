@@ -3,8 +3,7 @@ package com.boylab;
 import android.app.Activity;
 
 import com.boylab.keyboard.DecimalKeyboard;
-import com.boylab.keyboard.IPKeyboard;
-import com.boylab.keyboard.IdentityKeyboard;
+import com.boylab.keyboard.IDKeyboard;
 import com.boylab.keyboard.NumberKeyboard;
 import com.boylab.keyboard.OnKeyActionListener;
 import com.boylab.keyboard.VehiclePlateKeyboard;
@@ -19,7 +18,7 @@ public class EasyKeyBoard {
     }
 
     public static void bindIdentity(Activity context, OnKeyActionListener onKeyActionListener){
-        IdentityKeyboard.show(context, onKeyActionListener);
+        IDKeyboard.show(context, onKeyActionListener);
     }
 
     @Deprecated

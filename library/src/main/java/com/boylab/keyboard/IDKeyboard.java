@@ -10,17 +10,20 @@ import android.widget.TextView;
 
 import com.boylab.easykeyboard.R;
 
-public class IdentityKeyboard extends AbstractKeyboard{
+/**
+ * 身份证键盘
+ */
+public class IDKeyboard extends AbstractKeyboard{
 
     private KeyboardView mKeyboardView;
-    private Keyboard mNumberKeyboard;
+    private Keyboard mNumberKeyboard;            
 
     private TextView text_Input;
     private TextView mSelectedTextView;
 
     private int maxLen = 18;
 
-    public IdentityKeyboard(Context context, OnKeyActionListener commitListener) {
+    public IDKeyboard(Context context, OnKeyActionListener commitListener) {
         super(context, commitListener);
         initKeyBoard();
     }
@@ -34,7 +37,7 @@ public class IdentityKeyboard extends AbstractKeyboard{
         text_Input.setSoundEffectsEnabled(false);
         text_Input.setOnClickListener(listener);
 
-        mNumberKeyboard = new Keyboard(mContext, R.xml.keyboard_numbers);
+        mNumberKeyboard = new Keyboard(mContext, R.xml.keyboard_number);
         mKeyboardView = (KeyboardView) contentView.findViewById(R.id.keyboard_view);
         mKeyboardView.setOnKeyboardActionListener(new OnKeyboardActionHandler() {
             @Override
@@ -107,10 +110,10 @@ public class IdentityKeyboard extends AbstractKeyboard{
 
     public static void show(Activity context, OnKeyActionListener listener) {
         View v= context.getWindow().getDecorView().getRootView();
-        new IdentityKeyboard(context, listener).show(v);
+        new IDKeyboard(context, listener).show(v);
     }
 
-    public static IdentityKeyboard create(Context context, OnKeyActionListener listener) {
-        return new IdentityKeyboard(context, listener);
+    public static IDKeyboard create(Context context, OnKeyActionListener listener) {
+        return new IDKeyboard(context, listener);
     }
 }

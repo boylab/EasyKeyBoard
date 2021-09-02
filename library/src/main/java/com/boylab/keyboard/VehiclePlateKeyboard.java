@@ -64,7 +64,7 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
         mProvinceKeyboard_1 = new Keyboard(context, R.xml.keyboard_vehicle_province_1);
         mProvinceKeyboard_0 = new Keyboard(context, R.xml.keyboard_vehicle_province_0);
         mCityCodeKeyboard = new Keyboard(context, R.xml.keyboard_vehicle_code);
-        mNumberKeyboard = new Keyboard(context, R.xml.keyboard_vehicle_number);
+        mNumberKeyboard = new Keyboard(context, R.xml.keyboard_car_number);
         mNumberExtraKeyboard = new Keyboard(context, R.xml.keyboard_vehicle_number_extra);
 
         mKeyboardView = (KeyboardView) contentView.findViewById(R.id.keyboard_view);
@@ -176,8 +176,8 @@ public class VehiclePlateKeyboard extends AbstractKeyboard{
                         mKeyboardView.setKeyboard(mNumberExtraKeyboard);
                     }
                 } else {
-                    if (mShowingKeyboard != R.xml.keyboard_vehicle_number) {
-                        mShowingKeyboard = R.xml.keyboard_vehicle_number;
+                    if (mShowingKeyboard != R.xml.keyboard_car_number) {
+                        mShowingKeyboard = R.xml.keyboard_car_number;
                         mKeyboardView.setKeyboard(mNumberKeyboard);
                     }
                 }

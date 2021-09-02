@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="@dimen/key_radius" />
+
+    <solid android:color="#FFFFFF" />
+
+    <stroke
+        android:width="@dimen/key_stroke_gap"
+        android:color="@color/key_plate_sharp" />
+</shape>

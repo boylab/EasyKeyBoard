@@ -5,7 +5,6 @@ import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -45,7 +44,7 @@ public class DecimalKeyboard extends AbstractKeyboard{
         text_Input.setSoundEffectsEnabled(false);
         text_Input.setOnClickListener(listener);
 
-        mNumberKeyboard = new Keyboard(mContext, R.xml.keyboard_number_with_decimal);
+        mNumberKeyboard = new Keyboard(mContext, R.xml.keyboard_number_decimal);
         mKeyboardView = (KeyboardView) contentView.findViewById(R.id.keyboard_view);
         mKeyboardView.setOnKeyboardActionListener(new OnKeyboardActionHandler() {
             @Override

@@ -36,7 +36,7 @@ public class NumberKeyboard extends AbstractKeyboard{
         text_Input.setSoundEffectsEnabled(false);
         text_Input.setOnClickListener(listener);
 
-        mNumberKeyboard = new Keyboard(mContext, R.xml.keyboard_numbers);
+        mNumberKeyboard = new Keyboard(mContext, R.xml.keyboard_number);
         mKeyboardView = (KeyboardView) contentView.findViewById(R.id.keyboard_view);
         mKeyboardView.setOnKeyboardActionListener(new OnKeyboardActionHandler() {
             @Override

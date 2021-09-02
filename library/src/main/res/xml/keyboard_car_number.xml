@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyWidth="8.3333%p"
+    android:keyHeight="@dimen/key_height">
+    <Row>
+        <Key
+            android:codes="@integer/code_京"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/label_京" />
+        <Key
+            android:codes="@integer/code_津"
+            android:keyLabel="@string/label_津" />
+        <Key
+            android:codes="@integer/code_沪"
+            android:keyLabel="@string/label_沪" />
+        <Key
+            android:codes="@integer/code_渝"
+            android:keyLabel="@string/label_渝" />
+        <Key
+            android:codes="@integer/code_冀"
+            android:keyLabel="@string/label_冀" />
+        <Key
+            android:codes="@integer/code_豫"
+            android:keyLabel="@string/label_豫" />
+        <Key
+            android:codes="@integer/code_云"
+            android:keyLabel="@string/label_云" />
+        <Key
+            android:codes="@integer/code_辽"
+            android:keyLabel="@string/label_辽" />
+        <Key
+            android:codes="@integer/code_黑"
+            android:keyLabel="@string/label_黑" />
+        <Key
+            android:codes="@integer/code_湘"
+            android:keyLabel="@string/label_湘" />
+        <Key
+            android:codes="@integer/code_Delete"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/icon_key_delete" />
+    </Row>
+
+    <Row>
+        <Key
+            android:codes="@integer/code_皖"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/label_皖" />
+        <Key
+            android:codes="@integer/code_鲁"
+            android:keyLabel="@string/label_鲁" />
+        <Key
+            android:codes="@integer/code_新"
+            android:keyLabel="@string/label_新" />
+        <Key
+            android:codes="@integer/code_苏"
+            android:keyLabel="@string/label_苏" />
+        <Key
+            android:codes="@integer/code_浙"
+            android:keyLabel="@string/label_浙" />
+        <Key
+            android:codes="@integer/code_赣"
+            android:keyLabel="@string/label_赣" />
+        <Key
+            android:codes="@integer/code_鄂"
+            android:keyLabel="@string/label_鄂" />
+        <Key
+            android:codes="@integer/code_桂"
+            android:keyLabel="@string/label_桂" />
+        <Key
+            android:codes="@integer/code_甘"
+            android:keyLabel="@string/label_甘" />
+        <Key
+            android:codes="@integer/code_晋"
+            android:keyLabel="@string/label_晋" />
+        <Key
+            android:codes="@integer/code_蒙"
+            android:keyLabel="@string/label_蒙" />
+        <Key
+            android:codes="@integer/code_陕"
+            android:keyEdgeFlags="right"
+            android:keyLabel="@string/label_陕" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/code_吉"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/label_吉" />
+        <Key
+            android:codes="@integer/code_闽"
+            android:keyLabel="@string/label_闽" />
+        <Key
+            android:codes="@integer/code_贵"
+            android:keyLabel="@string/label_贵" />
+        <Key
+            android:codes="@integer/code_粤"
+            android:keyLabel="@string/label_粤" />
+        <Key
+            android:codes="@integer/code_青"
+            android:keyLabel="@string/label_青" />
+        <Key
+            android:codes="@integer/code_藏"
+            android:keyLabel="@string/label_藏" />
+        <Key
+            android:codes="@integer/code_川"
+            android:keyLabel="@string/label_川" />
+        <Key
+            android:codes="@integer/code_宁"
+            android:keyLabel="@string/label_宁" />
+        <Key
+            android:codes="@integer/code_琼"
+            android:keyLabel="@string/label_琼" />
+        <Key
+            android:codes="@integer/code_空"
+            android:keyLabel="@string/label_空" />
+        <Key
+            android:codes="@integer/code_军"
+            android:keyLabel="@string/label_军" />
+        <Key
+            android:codes="@integer/code_挂"
+            android:keyEdgeFlags="right"
+            android:keyLabel="@string/label_挂" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="@integer/code_0"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/label_0" />
+        <Key
+            android:codes="@integer/code_1"
+            android:keyLabel="@string/label_1" />
+        <Key
+            android:codes="@integer/code_2"
+            android:keyLabel="@string/label_2" />
+        <Key
+            android:codes="@integer/code_3"
+            android:keyLabel="@string/label_3" />
+        <Key
+            android:codes="@integer/code_4"
+            android:keyLabel="@string/label_4" />
+        <Key
+            android:codes="@integer/code_5"
+            android:keyLabel="@string/label_5" />
+        <Key
+            android:codes="@integer/code_6"
+            android:keyLabel="@string/label_6" />
+        <Key
+            android:codes="@integer/code_7"
+            android:keyLabel="@string/label_7" />
+        <Key
+            android:codes="@integer/code_8"
+            android:keyLabel="@string/label_8" />
+        <Key
+            android:codes="@integer/code_9"
+            android:keyLabel="@string/label_9" />
+        <Key
+            android:codes="@integer/code_star"
+            android:keyLabel="@string/label_star" />
+        <Key
+            android:codes="@integer/code_"
+            android:keyEdgeFlags="right" />
+    </Row>
+
+    <Row>
+        <Key
+            android:codes="@integer/code_A"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/label_A" />
+        <Key
+            android:codes="@integer/code_B"
+            android:keyLabel="@string/label_B" />
+        <Key
+            android:codes="@integer/code_C"
+            android:keyLabel="@string/label_C" />
+        <Key
+            android:codes="@integer/code_D"
+            android:keyLabel="@string/label_D" />
+        <Key
+            android:codes="@integer/code_E"
+            android:keyLabel="@string/label_E" />
+        <Key
+            android:codes="@integer/code_F"
+            android:keyLabel="@string/label_F" />
+        <Key
+            android:codes="@integer/code_G"
+            android:keyLabel="@string/label_G" />
+        <Key
+            android:codes="@integer/code_H"
+            android:keyLabel="@string/label_H" />
+        <Key
+            android:codes="@integer/code_J"
+            android:keyLabel="@string/label_J" />
+        <Key
+            android:codes="@integer/code_K"
+            android:keyLabel="@string/label_K" />
+        <Key
+            android:codes="@integer/code_L"
+            android:keyLabel="@string/label_L" />
+        <Key
+            android:codes="@integer/code_M"
+            android:keyEdgeFlags="right"
+            android:keyLabel="@string/label_M" />
+    </Row>
+
+    <Row>
+        <Key
+            android:codes="@integer/code_N"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/label_N" />
+        <Key
+            android:codes="@integer/code_P"
+            android:keyLabel="@string/label_P" />
+        <Key
+            android:codes="@integer/code_Q"
+            android:keyLabel="@string/label_Q" />
+        <Key
+            android:codes="@integer/code_R"
+            android:keyLabel="@string/label_R" />
+        <Key
+            android:codes="@integer/code_S"
+            android:keyLabel="@string/label_S" />
+        <Key
+            android:codes="@integer/code_T"
+            android:keyLabel="@string/label_T" />
+        <Key
+            android:codes="@integer/code_U"
+            android:keyLabel="@string/label_U" />
+        <Key
+            android:codes="@integer/code_V"
+            android:keyLabel="@string/label_V" />
+        <Key
+            android:codes="@integer/code_W"
+            android:keyLabel="@string/label_W" />
+        <Key
+            android:codes="@integer/code_X"
+            android:keyLabel="@string/label_X" />
+        <Key
+            android:codes="@integer/code_Y"
+            android:keyLabel="@string/label_Y" />
+        <Key
+            android:codes="@integer/code_Z"
+            android:keyEdgeFlags="right"
+            android:keyLabel="@string/label_Z" />
+    </Row>
+
+</Keyboard>

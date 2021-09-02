@@ -40,7 +40,7 @@ public class PasswordKeyboard extends AbstractKeyboard{
             view.setOnClickListener(listener);
         }
 
-        mNumberKeyboard = new Keyboard(context, R.xml.keyboard_numbers);
+        mNumberKeyboard = new Keyboard(context, R.xml.keyboard_number);
         mKeyboardView = (KeyboardView) contentView.findViewById(R.id.keyboard_view);
         mKeyboardView.setOnKeyboardActionListener(new OnKeyboardActionHandler() {
             @Override

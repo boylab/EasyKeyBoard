@@ -39,13 +39,13 @@ class AbstractKeyboard {
         mPopupWindow.setWidth(width);
         mPopupWindow.setHeight(height);
 
-        final View view = LayoutInflater.from(mContext).inflate(layoutResId,null);
+        final View view = LayoutInflater.from(mContext).inflate(layoutResId, null);
         mPopupWindow.setContentView(view);
         return view;
     }
 
     protected View putContentView(int layoutResId) {
-        final View view = LayoutInflater.from(mContext).inflate(layoutResId,null);
+        final View view = LayoutInflater.from(mContext).inflate(layoutResId, null);
         mPopupWindow.setContentView(view);
         return view;
     }
@@ -58,26 +58,29 @@ class AbstractKeyboard {
         onShow();
     }
 
-    protected void onShow(){ }
-    protected void onFilter(){ }
+    protected void onShow() {
+    }
 
-    public void dismiss(){
+    protected void onFilter() {
+    }
+
+    public void dismiss() {
         mPopupWindow.dismiss();
     }
 
-    public void beep(Context context){
+    public void beep(Context context) {
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            VibrationEffect vibe = VibrationEffect.createWaveform(new long[]{0,60},-1);
+            VibrationEffect vibe = VibrationEffect.createWaveform(new long[]{0, 60}, -1);
             vibrator.vibrate(vibe);
         }
     }
 
     protected String getInput(TextView[] inputs) {
         final StringBuilder buff = new StringBuilder(inputs.length);
-        for (TextView item : inputs){
+        for (TextView item : inputs) {
             String text = String.valueOf(item.getText());
-            if (! TextUtils.isEmpty(text)){
+            if (!TextUtils.isEmpty(text)) {
                 buff.append(text);
             }
         }
