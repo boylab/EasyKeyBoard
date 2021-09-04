@@ -5,17 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boylab.EasyKeyBoard;
-import com.boylab.keyboard.OnKeyActionListener;
-import com.boylab.keyboard.VehiclePlateKeyboard;
+import com.boylab.callback.OnKeyboardListener;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView display;
+    private EasyKeyBoard easyKeyBoard = EasyKeyBoard.singleton();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,20 +22,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         display = findViewById(R.id.display);
-
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EasyKeyBoard.bindCarPlate(MainActivity.this,"武J12345", new OnKeyActionListener(){
-
+                MainActivity.this.easyKeyBoard.bindCarNumber(MainActivity.this,"武J12345", new OnKeyboardListener(){
                     @Override
-                    public void onFinish(String input) {
-                        display.setText(input);
+                    public void onKeyUpdate(String input) {
+                        display.setText("Processing: " + input);
                     }
 
                     @Override
-                    public void onProcess(String input) {
-                        display.setText("Processing: " + input);
+                    public void onKeyFinish(String input) {
+                        Toast.makeText(MainActivity.this, input, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -45,16 +42,15 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                EasyKeyBoard.bindNumber(MainActivity.this, 2,new OnKeyActionListener() {
+                MainActivity.this.easyKeyBoard.bindNumber(MainActivity.this, 6,new OnKeyboardListener() {
                     @Override
-                    public void onFinish(String input) {
-                        Log.i(">>>boylab>>", ">>>onFinish: "+input);
+                    public void onKeyUpdate(String input) {
+                        display.setText("Processing: " + input);
                     }
 
                     @Override
-                    public void onProcess(String input) {
-                        display.setText("Processing: " + input);
+                    public void onKeyFinish(String input) {
+                        Toast.makeText(MainActivity.this, input, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -63,15 +59,15 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EasyKeyBoard.bindDecimal(MainActivity.this, 4,2,new OnKeyActionListener() {
+                MainActivity.this.easyKeyBoard.bindDecimal(MainActivity.this, 4,2,new OnKeyboardListener() {
                     @Override
-                    public void onFinish(String input) {
-                        Log.i(">>>boylab>>", ">>>onFinish: "+input);
+                    public void onKeyUpdate(String input) {
+                        display.setText("Processing: " + input);
                     }
 
                     @Override
-                    public void onProcess(String input) {
-                        display.setText("Processing: " + input);
+                    public void onKeyFinish(String input) {
+                        Toast.makeText(MainActivity.this, input, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -80,14 +76,51 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.this.easyKeyBoard.bindID(MainActivity.this, new OnKeyboardListener() {
+                    @Override
+                    public void onKeyUpdate(String input) {
+                        display.setText("Processing: " + input);
+                    }
 
+                    @Override
+                    public void onKeyFinish(String input) {
+                        Toast.makeText(MainActivity.this, input, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
         findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MainActivity.this.easyKeyBoard.bindIP(MainActivity.this, new OnKeyboardListener() {
+                    @Override
+                    public void onKeyUpdate(String input) {
+                        display.setText("Processing: " + input);
+                    }
 
+                    @Override
+                    public void onKeyFinish(String input) {
+                        Toast.makeText(MainActivity.this, input, Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.easyKeyBoard.bindPassword(MainActivity.this, new OnKeyboardListener() {
+                    @Override
+                    public void onKeyUpdate(String input) {
+                        display.setText("Processing: " + input);
+                    }
+
+                    @Override
+                    public void onKeyFinish(String input) {
+                        Toast.makeText(MainActivity.this, input, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

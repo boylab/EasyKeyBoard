@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@drawable/sharp_keyboard"
+        android:paddingTop="10dp"
+        android:paddingBottom="2dp">
+
+        <RelativeLayout
+            android:id="@+id/layout_Input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/button_Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/text_Input"
+                android:layout_alignRight="@+id/text_Input"
+                android:layout_alignBottom="@+id/text_Input"
+                android:background="@drawable/cancel_bg_selector"
+                android:ems="4"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/input_textSize" />
+
+            <Button
+                android:id="@+id/button_Confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/text_Input"
+                android:layout_alignBottom="@+id/text_Input"
+                android:layout_marginLeft="@dimen/inputs_margin"
+                android:layout_toRightOf="@+id/text_Input"
+                android:background="@drawable/confirm_bg_selector"
+                android:ems="5"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/input_textSize" />
+
+            <TextView
+                android:id="@+id/text_Input"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sharp_text_normal"
+                android:ems="20"
+                android:gravity="center_vertical|left"
+                android:hint="沪A123456"
+                android:paddingVertical="@dimen/input_paddingVertical"
+                android:paddingLeft="150dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/input_hint_color"
+                android:textSize="@dimen/input_textSize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/text_Input"
+                android:layout_alignTop="@+id/text_Input"
+                android:layout_alignBottom="@+id/text_Input"
+                android:background="@color/key_color_pressed"
+                android:ems="4"
+                android:gravity="center"
+                android:text="车牌"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/input_textSize" />
+
+        </RelativeLayout>
+
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboard_car"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout_Input"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@color/key_stroke_color"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/key_bg_selector"
+            android:keyTextColor="@color/key_text_color"
+            android:keyTextSize="@dimen/key_textSize"
+            android:paddingBottom="1dp"
+            android:shadowColor="@android:color/darker_gray"
+            android:shadowRadius="0" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
+
+

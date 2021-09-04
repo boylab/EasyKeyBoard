@@ -3,9 +3,9 @@
 
     <corners android:radius="@dimen/key_radius" />
 
-    <solid android:color="#FFFFFF" />
+    <solid android:color="@color/input_normal_color" />
 
     <stroke
         android:width="@dimen/key_stroke_gap"
-        android:color="@color/key_plate_sharp" />
+        android:color="@color/key_stroke_color" />
 </shape>

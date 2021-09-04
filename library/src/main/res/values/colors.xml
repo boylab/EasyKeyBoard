@@ -3,6 +3,10 @@
     <color name="keyboard_stroke_color">#4FDCEE</color>
     <color name="keyboard_color">#4FDCEE</color>
 
+    <color name="input_normal_color">#FFFFFF</color>
+    <color name="input_select_color">#EC14B1F8</color>
+    <color name="input_hint_color">#99CCCCCC</color>
+
     <color name="key_stroke_color">#D2D2D2</color>
     <color name="key_color_normal">#FFFFFF</color>
     <color name="key_color_pressed">#D2D2D2</color>
@@ -13,5 +17,6 @@
 
     <color name="key_board_bg">#E1A6A4A4</color>
     <color name="key_plate_sharp">#E15E5A5A</color>
+
 
 </resources>

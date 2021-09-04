@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyWidth="8.3333%p"
+    android:keyWidth="8.333333%p"
     android:keyHeight="@dimen/key_height">
     <Row>
         <Key
@@ -36,6 +36,8 @@
             android:keyLabel="@string/label_湘" />
         <Key
             android:codes="@integer/code_Delete"
+            android:isRepeatable="true"
+            android:keyWidth="16.666666%p"
             android:keyEdgeFlags="right"
             android:keyIcon="@drawable/icon_key_delete" />
     </Row>
@@ -157,7 +159,8 @@
             android:keyLabel="@string/label_star" />
         <Key
             android:codes="@integer/code_"
-            android:keyEdgeFlags="right" />
+            android:keyEdgeFlags="right"
+            android:keyLabel=" " />
     </Row>
 
     <Row>

@@ -3,8 +3,7 @@ package com.boylab.keyboard;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
+import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -14,28 +13,30 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.boylab.callback.OnKeyboardListener;
+
 /**
  * @author YOOJIA.CHEN (yoojia.chen@gmail.com)
  */
-class AbstractKeyboard {
+class AbstractKeyboard implements KeyboardView.OnKeyboardActionListener{
 
     protected final Context mContext;
     private final PopupWindow mPopupWindow;
-    protected final OnKeyActionListener mOnKeyActionListener;
+    protected final OnKeyboardListener mOnKeyboardListener;
 
-    public AbstractKeyboard(Context context, OnKeyActionListener onKeyActionListener) {
+    public AbstractKeyboard(Context context, OnKeyboardListener onKeyboardListener) {
         mContext = context;
-        if (onKeyActionListener == null) {
+        if (onKeyboardListener == null) {
             throw new NullPointerException("onKeyActionListener == null");
         }
-        mOnKeyActionListener = onKeyActionListener;
+        mOnKeyboardListener = onKeyboardListener;
         mPopupWindow = new PopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mPopupWindow.setFocusable(true);
         mPopupWindow.setOutsideTouchable(false);
         mPopupWindow.setBackgroundDrawable(new BitmapDrawable(context.getResources(), (Bitmap) null));
     }
 
-    protected View putContentView(int layoutResId, int width, int height) {
+    protected View setContentView(int layoutResId, int width, int height) {
         mPopupWindow.setWidth(width);
         mPopupWindow.setHeight(height);
 
@@ -44,7 +45,7 @@ class AbstractKeyboard {
         return view;
     }
 
-    protected View putContentView(int layoutResId) {
+    protected View setContentView(int layoutResId) {
         final View view = LayoutInflater.from(mContext).inflate(layoutResId, null);
         mPopupWindow.setContentView(view);
         return view;
@@ -68,14 +69,6 @@ class AbstractKeyboard {
         mPopupWindow.dismiss();
     }
 
-    public void beep(Context context) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            VibrationEffect vibe = VibrationEffect.createWaveform(new long[]{0, 60}, -1);
-            vibrator.vibrate(vibe);
-        }
-    }
-
     protected String getInput(TextView[] inputs) {
         final StringBuilder buff = new StringBuilder(inputs.length);
         for (TextView item : inputs) {
@@ -87,5 +80,43 @@ class AbstractKeyboard {
         return buff.toString();
     }
 
+    @Override
+    public void onPress(int primaryCode) {
 
+    }
+
+    @Override
+    public void onRelease(int primaryCode) {
+
+    }
+
+    @Override
+    public void onKey(int primaryCode, int[] keyCodes) {
+
+    }
+
+    @Override
+    public void onText(CharSequence text) {
+
+    }
+
+    @Override
+    public void swipeLeft() {
+
+    }
+
+    @Override
+    public void swipeRight() {
+
+    }
+
+    @Override
+    public void swipeDown() {
+
+    }
+
+    @Override
+    public void swipeUp() {
+
+    }
 }

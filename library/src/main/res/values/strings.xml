@@ -3,6 +3,7 @@
 
     <string name="label_ESC">ESC</string>
     <string name="label_OK">确定</string>
+    <integer name="label_"> </integer>
     <string name="label_star">*</string>
     <string name="label_.">.</string>
 

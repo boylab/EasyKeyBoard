@@ -8,117 +8,182 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
+import com.boylab.callback.OnKeyboardListener;
 import com.boylab.easykeyboard.R;
 
-public class IPKeyboard extends AbstractKeyboard{
+/**
+ * IP软键盘
+ */
+public class IPKeyboard extends AbstractKeyboard implements View.OnClickListener {
 
     private KeyboardView mKeyboardView;
-    private Keyboard mNumberKeyboard;
+    private Keyboard mIPKeyboard;
 
-    private TextView text_Input;
-    private TextView mSelectedTextView;
+    private final TextView[] text_Input = new TextView[4];
+    private final int[] textIDs = new int[]{R.id.text_input_0, R.id.text_input_1, R.id.text_input_2, R.id.text_input_3};
+    private TextView mCurrentView;
 
     private int maxLen = 6;
 
-    public IPKeyboard(Context context, int maxLen, OnKeyActionListener commitListener) {
+    public IPKeyboard(Context context, int maxLen, OnKeyboardListener commitListener) {
         super(context, commitListener);
-
         this.maxLen = maxLen;
         initKeyBoard();
     }
 
-
-    public IPKeyboard(Context context, OnKeyActionListener commitListener) {
+    public IPKeyboard(Context context, OnKeyboardListener commitListener) {
         super(context, commitListener);
         initKeyBoard();
     }
 
     public void initKeyBoard(){
-        final View contentView = putContentView(R.layout.keyboard_ip);
+        final View rootView = setContentView(R.layout.keyboard_ip);
 
-        text_Input = contentView.findViewById(R.id.text_Input);
+        for (int i = 0; i < 4; i++) {
+            text_Input[i] = rootView.findViewById(textIDs[i]);
+            text_Input[i].setTag(i);
+        }
 
-        final View.OnClickListener listener = createNumberListener();
-        text_Input.setSoundEffectsEnabled(false);
-        text_Input.setOnClickListener(listener);
+        for (TextView view : text_Input) {
+            // 关闭点击声效
+            view.setSoundEffectsEnabled(false);
+            view.setOnClickListener(this);
+        }
 
-        mNumberKeyboard = new Keyboard(mContext, R.xml.keyboard_number);
-        mKeyboardView = (KeyboardView) contentView.findViewById(R.id.keyboard_view);
-        mKeyboardView.setOnKeyboardActionListener(new OnKeyboardActionHandler() {
-            @Override
-            public void onKey(int charCode, int[] keyCodes) {
-                beep(mContext);
-                if (charCode == Keyboard.KEYCODE_CANCEL){
-                    dismiss();
-                }else if (charCode == Keyboard.KEYCODE_DELETE){
-                    String number = text_Input.getText().toString();
-                    if (TextUtils.isEmpty(number)){
-                        return;
-                    }else{
-                        text_Input.setText(number.substring(0, number.length() -1));
-                    }
-
-                    if (mOnKeyActionListener != null){
-                        mOnKeyActionListener.onProcess(number);
-                    }
-                }else if (charCode == Keyboard.KEYCODE_DONE){
-                    String number = text_Input.getText().toString();
-
-                    if (TextUtils.isEmpty(number)){
-                        dismiss();
-                        return;
-                    }
-                    if (mOnKeyActionListener != null){
-                        mOnKeyActionListener.onFinish(number);
-                    }
-                    dismiss();
-                }else {
-                    String number = text_Input.getText().toString();
-                    if (number.length() >= maxLen){
-                        text_Input.setText(number.substring(number.length() - maxLen + 1));
-                        text_Input.append(Character.toString((char) charCode));
-                    }else {
-                        text_Input.append(Character.toString((char) charCode));
-                    }
-                    number = text_Input.getText().toString();
-                    if (mOnKeyActionListener != null){
-                        mOnKeyActionListener.onProcess(number);
-                    }
-                }
-            }
-        });
+        mIPKeyboard = new Keyboard(mContext, R.xml.keyboard_number_decimal);
+        mKeyboardView = rootView.findViewById(R.id.keyboard_ip);
+        mKeyboardView.setOnKeyboardActionListener(this);
         mKeyboardView.setPreviewEnabled(false);// !!! Must be false
-        mKeyboardView.setKeyboard(mNumberKeyboard);
+        mKeyboardView.setKeyboard(mIPKeyboard);
     }
 
     @Override
     protected void onShow() {
-        text_Input.performClick();
+        text_Input[0].performClick();
     }
 
+    @Override
+    public void onClick(View v) {
+        int index = (int) v.getTag();
+        for (int i = index; i < 4; i++) {
+            text_Input[i].setText(null);
+        }
 
-    private View.OnClickListener createNumberListener() {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mSelectedTextView != null){
-                    mSelectedTextView.setActivated(false);
+        if (mCurrentView != null){
+            mCurrentView.setActivated(false);
+        }
+        mCurrentView = (TextView) v;
+        mCurrentView.setActivated(true);
+
+        for (int i = 0; i < 4; i++) {
+            text_Input[i].setSelected(i == index);
+        }
+    }
+
+    @Override
+    public void onKey(int primaryCode, int[] keyCodes) {
+        super.onKey(primaryCode, keyCodes);
+        if (primaryCode == Keyboard.KEYCODE_CANCEL){
+            dismiss();
+        }else if (primaryCode == Keyboard.KEYCODE_DELETE){
+            /**
+             * 删除退格
+             */
+            int index = (int) mCurrentView.getTag();
+            String text = mCurrentView.getText().toString().trim();
+            if (text.isEmpty()){
+                if (index - 1 >= 0){
+                    text = text_Input[index - 1].getText().toString().trim();
+                    nextInput(index - 1);
+                    mCurrentView.setText(text.substring(0, text.length() -1));
+                }else {
+                    //略过
                 }
-                mSelectedTextView = (TextView) view;
-                mSelectedTextView.setActivated(true);
+            }else {
+                mCurrentView.setText(text.substring(0, text.length() -1));
             }
-        };
+            onKeyUpdate();
+        }else if (primaryCode == Keyboard.KEYCODE_DONE){
+            onKeyFinish();
+            dismiss();
+        }else {
+            /**
+             * 添加字符
+             */
+            int index = (int) mCurrentView.getTag();
+            String text = mCurrentView.getText().toString().trim();
+            if (primaryCode == '.'){
+                if (text.isEmpty()){
+                    //略过
+                }else {
+                    if (index == 3){
+                        //略过
+                    }else{
+                        nextInput(index + 1);
+                    }
+                }
+            }else {
+                if (text.length() < 3){
+                    mCurrentView.append(Character.toString((char) primaryCode));
+                }else {
+                    if (index == 3){
+                        //略过
+                    }else{
+                        nextInput(index + 1);
+                        mCurrentView.append(Character.toString((char) primaryCode));
+                    }
+                }
+            }
+            onKeyUpdate();
+        }
+    }
+
+    private void nextInput(int index) {
+        if (index < 0 || index > 3){
+            return;
+        }
+        text_Input[index].performClick();
+    }
+
+    private void onKeyUpdate(){
+        String inputText = "";
+        int index = (int) mCurrentView.getTag();
+        for (int i = 0; i <= index; i++) {
+            if (i != 0){
+                inputText = inputText.concat(".");
+            }
+            String text = text_Input[i].getText().toString().trim();
+            inputText = inputText.concat(text.isEmpty() ? "0": text);
+        }
+        if (mOnKeyboardListener != null){
+            mOnKeyboardListener.onKeyUpdate(inputText);
+        }
+    }
+
+    private void onKeyFinish(){
+        String inputText = "";
+        int index = (int) mCurrentView.getTag();
+        for (int i = 0; i <= index; i++) {
+            if (i != 0){
+                inputText = inputText.concat(".");
+            }
+            String text = text_Input[i].getText().toString().trim();
+            inputText = inputText.concat(text);
+        }
+        if (mOnKeyboardListener != null){
+            mOnKeyboardListener.onKeyFinish(inputText);
+        }
     }
 
 
-
-
-    public static void show(Activity context, OnKeyActionListener listener) {
+    public static void show(Activity context, OnKeyboardListener listener) {
         View v= context.getWindow().getDecorView().getRootView();
         new IPKeyboard(context, listener).show(v);
     }
 
-    public static IPKeyboard create(Context context, OnKeyActionListener listener) {
+    public static IPKeyboard create(Context context, OnKeyboardListener listener) {
         return new IPKeyboard(context, listener);
     }
+
+
 }

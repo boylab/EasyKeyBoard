@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="text_input_0" type="id" />
+    <item name="text_input_1" type="id" />
+    <item name="text_input_2" type="id" />
+    <item name="text_input_3" type="id" />
+    <item name="text_input_4" type="id" />
+    <item name="text_input_5" type="id" />
+    <item name="text_input_6" type="id" />
+
+</resources>

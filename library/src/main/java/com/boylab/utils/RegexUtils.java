@@ -22,6 +22,8 @@ import java.util.GregorianCalendar;
 import java.util.regex.Pattern;
 
 /**
+ * 正则匹配工具类
+ *
  * <p>
  * 类说明:身份证合法性校验
  * </p>
@@ -31,7 +33,7 @@ import java.util.regex.Pattern;
  * ：第7、8、9、10位为出生年份(四位数)，第11、第12位为出生月份，第13、14位代表出生日期，第17位代表性别，奇数为男，偶数为女。
  * </p>
  */
-public class IdentityUtils {
+public class RegexUtils {
 
     /**
      * 省，直辖市代码表： { 11:"北京",12:"天津",13:"河北",14:"山西",15:"内蒙古",
@@ -429,5 +431,15 @@ public class IdentityUtils {
             a[k++] = Integer.parseInt(String.valueOf(temp));
         }
         return a;
+    }
+
+    /**
+     * 校验输入的ip和端口是否合法
+     * @param str ip + port ：10.0.0.0:8080
+     * @return
+     */
+    public static boolean isValidatedIPPort(String str){
+        Pattern pattern = Pattern.compile("\\b((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5])\\.((?!\\d\\d\\d)\\d+|1\\d\\d|2[0-4]\\d|25[0-5]):(\\d{2,6})\\b");
+        return pattern.matcher(str).matches();
     }
 }

@@ -1,59 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/sharp_keyboard"
+    android:padding="10dp">
 
-    <LinearLayout
-        android:id="@+id/ll_PassWord"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/keyboard_view"
-        android:layout_alignRight="@+id/keyboard_view"
-        android:layout_centerHorizontal="true"
-        android:background="@color/key_stroke_color"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@id/keyboard_number_0"
-            style="@style/KeyboardInputNumber.Password" />
-
-        <TextView
-            android:id="@id/keyboard_number_1"
-            style="@style/KeyboardInputNumber.Password" />
-
-        <TextView
-            android:id="@id/keyboard_number_2"
-            style="@style/KeyboardInputNumber.Password" />
-
-        <TextView
-            android:id="@id/keyboard_number_3"
-            style="@style/KeyboardInputNumber.Password" />
-
-        <TextView
-            android:id="@id/keyboard_number_4"
-            style="@style/KeyboardInputNumber.Password" />
-
-        <TextView
-            android:id="@id/keyboard_number_5"
-            style="@style/KeyboardInputNumber.Password" />
-
-    </LinearLayout>
-
-
-    <android.inputmethodservice.KeyboardView
-        android:id="@+id/keyboard_view"
+    <TextView
+        android:id="@+id/text_Input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ll_PassWord"
+        android:layout_alignLeft="@+id/keyboard_ID"
+        android:layout_alignRight="@+id/keyboard_ID"
+        android:background="@drawable/sharp_text_normal"
+        android:gravity="center_vertical|left"
+        android:paddingHorizontal="@dimen/input_paddingHorizontal"
+        android:paddingVertical="@dimen/input_paddingVertical"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/input_textSize" />
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboard_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_Input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:background="@color/key_stroke_color"
         android:focusable="true"
-        android:focusableInTouchMode="true"
         android:keyBackground="@drawable/key_bg_selector"
         android:keyTextColor="@color/key_text_color"
-        android:keyTextSize="30sp"
+        android:keyTextSize="@dimen/key_textSize"
         android:paddingBottom="1dp"
+        android:shadowColor="@android:color/darker_gray"
         android:shadowRadius="0" />
 
 </RelativeLayout>
-
-
