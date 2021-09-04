@@ -21,6 +21,7 @@ import com.boylab.view.CarKeyboardView;
 public class CarKeyboard extends AbstractKeyboard implements View.OnClickListener {
 
     private static final int NUMBER_LENGTH = 8;
+    private String carNumber;
 
     private KeyboardView mKeyboardView;
     private Keyboard mCarKeyboard;
@@ -29,20 +30,25 @@ public class CarKeyboard extends AbstractKeyboard implements View.OnClickListene
     private Button button_Cancel, button_Confirm;
     private TextView mCurrentView;
 
-    public CarKeyboard(Context context, String defaultPlate, OnKeyboardListener keyActionListener) {
+    public CarKeyboard(Context context, String carNumber, OnKeyboardListener keyActionListener) {
         super(context, keyActionListener);
+        this.carNumber = carNumber;
+        initKeyBoard();
+    }
+
+    private void initKeyBoard() {
         final View rootView = setContentView(R.layout.keyboard_car_number, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         text_Input = rootView.findViewById(R.id.text_Input);
+        text_Input.setText(carNumber);
         text_Input.setSoundEffectsEnabled(false);
         text_Input.setOnClickListener(this);
 
-        mCarKeyboard = new Keyboard(context, R.xml.keyboard_car_number);
+        mCarKeyboard = new Keyboard(mContext, R.xml.keyboard_car_number);
         mKeyboardView = rootView.findViewById(R.id.keyboard_car);
         mKeyboardView.setOnKeyboardActionListener(this);
         mKeyboardView.setPreviewEnabled(false);// !!! Must be false
         mKeyboardView.setKeyboard(mCarKeyboard);
-
 
         button_Cancel = rootView.findViewById(R.id.button_Cancel);
         button_Confirm = rootView.findViewById(R.id.button_Confirm);
@@ -102,8 +108,8 @@ public class CarKeyboard extends AbstractKeyboard implements View.OnClickListene
         }
     }
 
-    public static void show(Activity activity, String defaultPlate, OnKeyboardListener listener) {
-        new CarKeyboard(activity, defaultPlate, listener).show(activity.getWindow().getDecorView().getRootView());
+    public static void show(Activity activity, String carNumber, OnKeyboardListener listener) {
+        new CarKeyboard(activity, carNumber, listener).show(activity.getWindow().getDecorView().getRootView());
     }
 
     public static CarKeyboard create(Context context, String defaultPlate, OnKeyboardListener listener) {

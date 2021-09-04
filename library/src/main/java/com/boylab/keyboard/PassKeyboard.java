@@ -38,7 +38,7 @@ public class PassKeyboard extends AbstractKeyboard implements View.OnClickListen
         for (TextView view : text_Input) {
             // 关闭点击声效
             view.setSoundEffectsEnabled(false);
-            view.setOnClickListener(this);
+            //view.setOnClickListener(this);
         }
 
         mPassKeyboard = new Keyboard(mContext, R.xml.keyboard_password);
@@ -50,25 +50,12 @@ public class PassKeyboard extends AbstractKeyboard implements View.OnClickListen
 
     @Override
     protected void onShow() {
-        text_Input[0].performClick();
+        nextInput(0);
     }
 
     @Override
     public void onClick(View v) {
-        int index = (int) v.getTag();
-        for (int i = index; i < 6; i++) {
-            text_Input[i].setText(null);
-        }
 
-        if (mCurrentView != null){
-            mCurrentView.setActivated(false);
-        }
-        mCurrentView = (TextView) v;
-        mCurrentView.setActivated(true);
-
-        for (int i = 0; i < 6; i++) {
-            text_Input[i].setSelected(i == index);
-        }
     }
 
     @Override
@@ -79,31 +66,38 @@ public class PassKeyboard extends AbstractKeyboard implements View.OnClickListen
              * 删除退格
              */
             int index = (int) mCurrentView.getTag();
-            String text = mCurrentView.getText().toString().trim();
-            if (text.isEmpty()){
-                nextInput(index - 1);
+            if (index == 0){
+                mCurrentView.setText(null);
             }else {
-                String currentText = mCurrentView.getText().toString().trim();
-                mCurrentView.setText(currentText.substring(0, currentText.length() -1));
+                mCurrentView.setText(null);
+                nextInput(index -1);
             }
-
             if (mOnKeyboardListener != null){
                 mOnKeyboardListener.onKeyUpdate(getInput(text_Input));
             }
         }else {
             int index = (int) mCurrentView.getTag();
-            mCurrentView.setText(Character.toString((char) primaryCode));
-            if (index < 5){
-                nextInput(index + 1);
+            String text = mCurrentView.getText().toString().trim();
+            if (text.isEmpty()){
+                mCurrentView.setText(Character.toString((char) primaryCode));
                 if (mOnKeyboardListener != null){
                     mOnKeyboardListener.onKeyUpdate(getInput(text_Input));
                 }
             }else {
-                // 输入最后一位密码，自动提交
-                if (mOnKeyboardListener != null){
-                    mOnKeyboardListener.onKeyFinish(getInput(text_Input));
+                nextInput(index + 1);
+                mCurrentView.setText(Character.toString((char) primaryCode));
+                index = (int) mCurrentView.getTag();
+                if (index == 5){
+                    // 输入最后一位密码，自动提交
+                    if (mOnKeyboardListener != null){
+                        mOnKeyboardListener.onKeyFinish(getInput(text_Input));
+                    }
+                    dismiss();
+                }else {
+                    if (mOnKeyboardListener != null){
+                        mOnKeyboardListener.onKeyUpdate(getInput(text_Input));
+                    }
                 }
-                dismiss();
             }
         }
     }
@@ -112,7 +106,16 @@ public class PassKeyboard extends AbstractKeyboard implements View.OnClickListen
         if (index < 0 || index > 5){
             return;
         }
-        text_Input[index].performClick();
+
+        if (mCurrentView != null){
+            mCurrentView.setActivated(false);
+        }
+        mCurrentView = (TextView) text_Input[index];
+        mCurrentView.setActivated(true);
+
+        for (int i = 0; i < 6; i++) {
+            text_Input[i].setSelected(i == index);
+        }
     }
 
     public static void show(Activity context, OnKeyboardListener listener) {

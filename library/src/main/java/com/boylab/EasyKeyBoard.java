@@ -51,11 +51,11 @@ public class EasyKeyBoard {
     /**
      * 车牌键盘
      * @param context
-     * @param defaultPlate
+     * @param carNumber
      * @param onKeyboardListener
      */
-    public void bindCarNumber(Activity context, String defaultPlate, OnKeyboardListener onKeyboardListener){
-        CarKeyboard.show(context, defaultPlate, onKeyboardListener);
+    public void bindCarNumber(Activity context, String carNumber, OnKeyboardListener onKeyboardListener){
+        CarKeyboard.show(context, carNumber, onKeyboardListener);
     }
 
     /**
