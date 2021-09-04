@@ -80,20 +80,24 @@ public class CarKeyboard extends AbstractKeyboard implements View.OnClickListene
         super.onKey(primaryCode, keyCodes);
 
         if (primaryCode == Keyboard.KEYCODE_DELETE) {
-            String number = text_Input.getText().toString();
-            if (TextUtils.isEmpty(number)) {
+            String text = text_Input.getText().toString();
+            if (TextUtils.isEmpty(text)) {
                 return;
             } else {
-                text_Input.setText(number.substring(0, number.length() - 1));
+                text_Input.setText(text.substring(0, text.length() - 1));
             }
-            number = text_Input.getText().toString();
+            text = text_Input.getText().toString();
             if (mOnKeyboardListener != null) {
-                mOnKeyboardListener.onKeyUpdate(number);
+                mOnKeyboardListener.onKeyUpdate(text);
             }
         } else {
             String text = text_Input.getText().toString();
             if (text.length() < NUMBER_LENGTH) {
                 text_Input.append(Character.toString((char) primaryCode));
+            }
+            text = text_Input.getText().toString();
+            if (mOnKeyboardListener != null) {
+                mOnKeyboardListener.onKeyUpdate(text);
             }
         }
     }
