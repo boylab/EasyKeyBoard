@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.this.easyKeyBoard.bindCarNumber(MainActivity.this,"武J12345", new OnKeyboardListener(){
+                MainActivity.this.easyKeyBoard.bindCarNumber(MainActivity.this,null, new OnKeyboardListener(){
                     @Override
                     public void onKeyUpdate(String input) {
                         display.setText("Processing: " + input);
