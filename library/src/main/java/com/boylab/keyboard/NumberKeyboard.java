@@ -6,6 +6,7 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.boylab.callback.OnKeyboardListener;
@@ -31,6 +32,7 @@ public class NumberKeyboard extends AbstractKeyboard implements View.OnClickList
     }
 
     private void initKeyBoard(){
+        // TODO: 2021/9/5  竖屏情况下可能要用到 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         final View rootView = setContentView(R.layout.keyboard_number);
 
         text_Input = rootView.findViewById(R.id.text_Input);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:keyWidth="8.333333%p"
-    android:keyHeight="@dimen/key_height">
+    android:keyWidth="@dimen/car_keyWidth"
+    android:keyHeight="@dimen/car_keyHeight">
     <Row>
         <Key
             android:codes="@integer/code_京"
@@ -37,7 +37,7 @@
         <Key
             android:codes="@integer/code_Delete"
             android:isRepeatable="true"
-            android:keyWidth="16.666666%p"
+            android:keyWidth="@dimen/car_delete_keyWidth"
             android:keyEdgeFlags="right"
             android:keyIcon="@drawable/icon_key_delete" />
     </Row>

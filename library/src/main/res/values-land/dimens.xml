@@ -10,7 +10,7 @@
     <dimen name="input_radius">1dp</dimen>
     <dimen name="input_paddingHorizontal">20dp</dimen>
     <dimen name="input_paddingVertical">8dp</dimen>
-    <dimen name="input_textSize">23sp</dimen>
+    <dimen name="input_textSize">25sp</dimen>
 
     <dimen name="inputs_radius">1dp</dimen>
     <dimen name="inputs_margin">10dp</dimen>
@@ -24,23 +24,25 @@
 
     <!--车牌键盘尺寸-->
     <dimen name="car_keyWidth">8.333333%p</dimen>
-    <dimen name="car_keyHeight">6%p</dimen>
+    <dimen name="car_keyHeight">8%p</dimen>
     <dimen name="car_delete_keyWidth">16.666666%p</dimen>
 
     <!--英文键盘尺寸-->
     <dimen name="english_keyWidth">10.00005%p</dimen>
-    <dimen name="english_keyHeight">8%p</dimen>
-    <dimen name="english_delete_keyWidth">10.00005%p</dimen>
+    <dimen name="english_keyHeight">10%p</dimen>
+    <dimen name="english_delete_keyWidth">16.666666%p</dimen>
 
     <!--数字键盘（包含身份、数字、小数）-->
-    <dimen name="number_keyWidth">18%p</dimen>
-    <dimen name="number_keyHeight">8%p</dimen>
-    <dimen name="number_CANCEL_keyHeight">16%p</dimen>
-    <dimen name="number_DONE_keyHeight">16%p</dimen>
-    <dimen name="number_0_keyWidth">36%p</dimen>
+    <dimen name="number_keyWidth">10%p</dimen>
+    <dimen name="number_keyHeight">10%p</dimen>
+    <dimen name="number_CANCEL_keyHeight">20%p</dimen>
+    <dimen name="number_DONE_keyHeight">20%p</dimen>
+    <dimen name="number_0_keyWidth">20%p</dimen>
 
     <!--密码键盘-->
-    <dimen name="pass_keyWidth">30%p</dimen>
-    <dimen name="pass_keyHeight">8%p</dimen>
-    <dimen name="pass_0_keyHeight">60%p</dimen>
+    <dimen name="pass_keyWidth">12%p</dimen>
+    <dimen name="pass_keyHeight">10%p</dimen>
+    <dimen name="pass_0_keyHeight">24%p</dimen>
+
+
 </resources>

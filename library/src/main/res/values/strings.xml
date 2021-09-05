@@ -1,14 +1,14 @@
 <resources>
     <string name="app_name">CustomKeyBoard</string>
 
-    <string name="label_ESC">ESC</string>
-    <string name="label_OK">确定</string>
+    <string name="label_CANCEL">ESC</string>
+    <string name="label_DONE">确定</string>
     <integer name="label_"> </integer>
     <string name="label_star">*</string>
     <string name="label_.">.</string>
 
-    <integer name="code_ESC">-3</integer>
-    <integer name="code_OK">-4</integer>
+    <integer name="code_CANCEL">-3</integer>
+    <integer name="code_DONE">-4</integer>
     <integer name="code_Delete">-5</integer>
     <integer name="code_">0x20</integer>
     <integer name="code_star">0x2A</integer>

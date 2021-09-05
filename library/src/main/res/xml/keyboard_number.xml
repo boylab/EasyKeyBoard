@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:horizontalGap="0dp"
-    android:keyWidth="10%p"
-    android:keyHeight="10%p"
+    android:keyWidth="@dimen/number_keyWidth"
+    android:keyHeight="@dimen/number_keyHeight"
     android:verticalGap="0dp">
 
     <Row>
@@ -17,10 +17,10 @@
             android:codes="@integer/code_3"
             android:keyLabel="@string/label_3" />
         <Key
-            android:codes="@integer/code_ESC"
-            android:keyHeight="20%p"
+            android:codes="@integer/code_CANCEL"
+            android:keyHeight="@dimen/number_CANCEL_keyHeight"
             android:keyEdgeFlags="right"
-            android:keyLabel="@string/label_ESC" />
+            android:keyLabel="@string/label_CANCEL" />
     </Row>
 
     <Row>
@@ -48,16 +48,16 @@
             android:codes="@integer/code_9"
             android:keyLabel="@string/label_9" />
         <Key
-            android:codes="@integer/code_OK"
-            android:keyHeight="20%p"
+            android:codes="@integer/code_DONE"
+            android:keyHeight="@dimen/number_DONE_keyHeight"
             android:keyEdgeFlags="right"
-            android:keyLabel="@string/label_OK" />
+            android:keyLabel="@string/label_DONE" />
     </Row>
 
     <Row>
         <Key
             android:codes="@integer/code_0"
-            android:keyWidth="20%p"
+            android:keyWidth="@dimen/number_0_keyWidth"
             android:keyEdgeFlags="left"
             android:keyLabel="@string/label_0" />
         <Key
