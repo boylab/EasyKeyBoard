@@ -80,10 +80,6 @@ public class DecimalKeyboard extends AbstractKeyboard implements View.OnClickLis
             }
             number = text_Input.getText().toString();
             isAddPoint = number.contains(".");
-
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(number);
-            }
         }else if (primaryCode == Keyboard.KEYCODE_DONE){
             String number = text_Input.getText().toString();
 
@@ -108,9 +104,6 @@ public class DecimalKeyboard extends AbstractKeyboard implements View.OnClickLis
             }
             String number = text_Input.getText().toString();
             isAddPoint = number.contains(".");
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(number);
-            }
         }else {
             String number = text_Input.getText().toString();
             if (isAddPoint){
@@ -128,11 +121,10 @@ public class DecimalKeyboard extends AbstractKeyboard implements View.OnClickLis
                     text_Input.append(Character.toString((char) primaryCode));
                 }
             }
-
-            number = text_Input.getText().toString();
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(number);
-            }
+        }
+        String number = text_Input.getText().toString();
+        if (mOnKeyboardListener != null){
+            mOnKeyboardListener.onKeyPress(primaryCode, number);
         }
     }
 

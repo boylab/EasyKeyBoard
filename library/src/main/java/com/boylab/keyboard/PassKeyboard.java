@@ -72,17 +72,11 @@ public class PassKeyboard extends AbstractKeyboard implements View.OnClickListen
                 mCurrentView.setText(null);
                 nextInput(index -1);
             }
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(getInput(text_Input));
-            }
         }else {
             int index = (int) mCurrentView.getTag();
             String text = mCurrentView.getText().toString().trim();
             if (text.isEmpty()){
                 mCurrentView.setText(Character.toString((char) primaryCode));
-                if (mOnKeyboardListener != null){
-                    mOnKeyboardListener.onKeyUpdate(getInput(text_Input));
-                }
             }else {
                 nextInput(index + 1);
                 mCurrentView.setText(Character.toString((char) primaryCode));
@@ -94,11 +88,12 @@ public class PassKeyboard extends AbstractKeyboard implements View.OnClickListen
                     }
                     dismiss();
                 }else {
-                    if (mOnKeyboardListener != null){
-                        mOnKeyboardListener.onKeyUpdate(getInput(text_Input));
-                    }
+                    //略过
                 }
             }
+        }
+        if (mOnKeyboardListener != null){
+            mOnKeyboardListener.onKeyPress(primaryCode, getInput(text_Input));
         }
     }
 

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 MainActivity.this.easyKeyBoard.bindCarNumber(MainActivity.this,null, new OnKeyboardListener(){
                     @Override
-                    public void onKeyUpdate(String input) {
+                    public void onKeyPress(int primaryCode, String input) {
                         display.setText("Processing: " + input);
                     }
 
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MainActivity.this.easyKeyBoard.bindNumber(MainActivity.this, 6,new OnKeyboardListener() {
                     @Override
-                    public void onKeyUpdate(String input) {
+                    public void onKeyPress(int primaryCode, String input) {
                         display.setText("Processing: " + input);
                     }
 
@@ -60,8 +60,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MainActivity.this.easyKeyBoard.bindDecimal(MainActivity.this, 4,2,new OnKeyboardListener() {
+
                     @Override
-                    public void onKeyUpdate(String input) {
+                    public void onKeyPress(int primaryCode, String input) {
                         display.setText("Processing: " + input);
                     }
 
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MainActivity.this.easyKeyBoard.bindID(MainActivity.this, new OnKeyboardListener() {
                     @Override
-                    public void onKeyUpdate(String input) {
+                    public void onKeyPress(int primaryCode, String input) {
                         display.setText("Processing: " + input);
                     }
 
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MainActivity.this.easyKeyBoard.bindIP(MainActivity.this, new OnKeyboardListener() {
                     @Override
-                    public void onKeyUpdate(String input) {
+                    public void onKeyPress(int primaryCode, String input) {
                         display.setText("Processing: " + input);
                     }
 
@@ -112,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 MainActivity.this.easyKeyBoard.bindPassword(MainActivity.this, new OnKeyboardListener() {
                     @Override
-                    public void onKeyUpdate(String input) {
+                    public void onKeyPress(int primaryCode, String input) {
                         display.setText("Processing: " + input);
                     }
 

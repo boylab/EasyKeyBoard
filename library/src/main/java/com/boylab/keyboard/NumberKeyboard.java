@@ -6,7 +6,6 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.boylab.callback.OnKeyboardListener;
@@ -72,10 +71,6 @@ public class NumberKeyboard extends AbstractKeyboard implements View.OnClickList
             }else{
                 text_Input.setText(number.substring(0, number.length() -1));
             }
-            number = text_Input.getText().toString();
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(number);
-            }
         }else if (primaryCode == Keyboard.KEYCODE_DONE){
             String number = text_Input.getText().toString();
             if (TextUtils.isEmpty(number)){
@@ -95,11 +90,13 @@ public class NumberKeyboard extends AbstractKeyboard implements View.OnClickList
             }else {
                 text_Input.append(Character.toString((char) primaryCode));
             }
-            number = text_Input.getText().toString();
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(number);
-            }
         }
+
+        String number = text_Input.getText().toString();
+        if (mOnKeyboardListener != null){
+            mOnKeyboardListener.onKeyPress(primaryCode, number);
+        }
+
     }
 
     public static void show(Activity context, int maxLen, OnKeyboardListener listener) {

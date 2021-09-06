@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.boylab.callback.OnKeyboardListener;
 import com.boylab.easykeyboard.R;
-import com.boylab.view.CarKeyboardView;
 
 /**
  * 中国民用
@@ -72,19 +71,30 @@ public class CarKeyboard extends AbstractKeyboard implements View.OnClickListene
             mCurrentView.setActivated(true);
         } else if (viewID == R.id.button_Cancel) {
             dismiss();
+
+            //替代键盘取消按钮
+            String text = text_Input.getText().toString();
+            if (mOnKeyboardListener != null) {
+                mOnKeyboardListener.onKeyPress(Keyboard.KEYCODE_CANCEL, text);
+            }
         } else if (viewID == R.id.button_Confirm) {
             String number = text_Input.getText().toString();
             if (mOnKeyboardListener != null) {
                 mOnKeyboardListener.onKeyFinish(number);
             }
             dismiss();
+
+            //替代键盘确认按钮
+            String text = text_Input.getText().toString();
+            if (mOnKeyboardListener != null) {
+                mOnKeyboardListener.onKeyPress(Keyboard.KEYCODE_DONE, text);
+            }
         }
     }
 
     @Override
     public void onKey(int primaryCode, int[] keyCodes) {
         super.onKey(primaryCode, keyCodes);
-
         if (primaryCode == Keyboard.KEYCODE_DELETE) {
             String text = text_Input.getText().toString();
             if (TextUtils.isEmpty(text)) {
@@ -92,19 +102,15 @@ public class CarKeyboard extends AbstractKeyboard implements View.OnClickListene
             } else {
                 text_Input.setText(text.substring(0, text.length() - 1));
             }
-            text = text_Input.getText().toString();
-            if (mOnKeyboardListener != null) {
-                mOnKeyboardListener.onKeyUpdate(text);
-            }
         } else {
             String text = text_Input.getText().toString();
             if (text.length() < NUMBER_LENGTH) {
                 text_Input.append(Character.toString((char) primaryCode));
             }
-            text = text_Input.getText().toString();
-            if (mOnKeyboardListener != null) {
-                mOnKeyboardListener.onKeyUpdate(text);
-            }
+        }
+        String text = text_Input.getText().toString();
+        if (mOnKeyboardListener != null) {
+            mOnKeyboardListener.onKeyPress(primaryCode, text);
         }
     }
 

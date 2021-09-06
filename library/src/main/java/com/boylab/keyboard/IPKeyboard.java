@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -102,7 +101,6 @@ public class IPKeyboard extends AbstractKeyboard implements View.OnClickListener
             }else {
                 mCurrentView.setText(text.substring(0, text.length() -1));
             }
-            onKeyUpdate();
         }else if (primaryCode == Keyboard.KEYCODE_DONE){
             onKeyFinish();
             dismiss();
@@ -134,8 +132,8 @@ public class IPKeyboard extends AbstractKeyboard implements View.OnClickListener
                     }
                 }
             }
-            onKeyUpdate();
         }
+        onKeyUpdate(primaryCode);
     }
 
     private void nextInput(int index) {
@@ -145,7 +143,7 @@ public class IPKeyboard extends AbstractKeyboard implements View.OnClickListener
         text_Input[index].performClick();
     }
 
-    private void onKeyUpdate(){
+    private void onKeyUpdate(int primaryCode){
         String inputText = "";
         int index = (int) mCurrentView.getTag();
         for (int i = 0; i <= index; i++) {
@@ -156,7 +154,7 @@ public class IPKeyboard extends AbstractKeyboard implements View.OnClickListener
             inputText = inputText.concat(text.isEmpty() ? "0": text);
         }
         if (mOnKeyboardListener != null){
-            mOnKeyboardListener.onKeyUpdate(inputText);
+            mOnKeyboardListener.onKeyPress(primaryCode, inputText);
         }
     }
 

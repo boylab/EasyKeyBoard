@@ -13,9 +13,10 @@ public interface OnKeyboardListener {
 
     /**
      * 输入过程中的数据
+     * @param primaryCode (KEYCODE_CANCEL = -3; KEYCODE_DONE = -4; KEYCODE_DELETE = -5;)
      * @param input 当前已经输入的内容
      */
-    void onKeyUpdate(String input);
+    void onKeyPress(int primaryCode, String input);
 
     /**
      * 输入完成并提交

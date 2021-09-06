@@ -69,13 +69,8 @@ public class IDKeyboard extends AbstractKeyboard implements View.OnClickListener
             }else{
                 text_Input.setText(number.substring(0, number.length() -1));
             }
-
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(number);
-            }
         }else if (primaryCode == Keyboard.KEYCODE_DONE){
             String number = text_Input.getText().toString();
-
             if (TextUtils.isEmpty(number)){
                 dismiss();
                 return;
@@ -93,10 +88,10 @@ public class IDKeyboard extends AbstractKeyboard implements View.OnClickListener
             }else {
                 text_Input.append(Character.toString((char) primaryCode));
             }
-            number = text_Input.getText().toString();
-            if (mOnKeyboardListener != null){
-                mOnKeyboardListener.onKeyUpdate(number);
-            }
+        }
+        String number = text_Input.getText().toString();
+        if (mOnKeyboardListener != null){
+            mOnKeyboardListener.onKeyPress(primaryCode, number);
         }
     }
 
