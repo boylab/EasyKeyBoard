@@ -124,11 +124,8 @@
     </Row>
     <Row>
         <Key
-            android:codes="@integer/code_0"
-            android:keyEdgeFlags="left"
-            android:keyLabel="@string/label_0" />
-        <Key
             android:codes="@integer/code_1"
+            android:keyEdgeFlags="left"
             android:keyLabel="@string/label_1" />
         <Key
             android:codes="@integer/code_2"
@@ -154,6 +151,9 @@
         <Key
             android:codes="@integer/code_9"
             android:keyLabel="@string/label_9" />
+        <Key
+            android:codes="@integer/code_0"
+            android:keyLabel="@string/label_0" />
         <Key
             android:codes="@integer/code_star"
             android:keyLabel="@string/label_star" />
