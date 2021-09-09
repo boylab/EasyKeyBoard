@@ -5,10 +5,12 @@ import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.boylab.callback.OnKeyboardListener;
 import com.boylab.easykeyboard.R;
+import com.boylab.view.PasswordTransfor;
 
 /**
  * 6位密码键盘
@@ -33,6 +35,7 @@ public class PassKeyboard extends AbstractKeyboard implements View.OnClickListen
         for (int i = 0; i < 6; i++) {
             text_Input[i] = rootView.findViewById(textIDs[i]);
             text_Input[i].setTag(i);
+            text_Input[i].setTransformationMethod(new PasswordTransfor());
         }
 
         for (TextView view : text_Input) {
