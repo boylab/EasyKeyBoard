@@ -21,15 +21,16 @@
                 android:id="@+id/button_Cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/text_Input"
-                android:layout_alignRight="@+id/text_Input"
                 android:layout_alignBottom="@+id/text_Input"
+                android:layout_alignParentTop="@+id/text_Input"
+                android:layout_alignParentRight="true"
                 android:background="@drawable/cancel_bg_selector"
                 android:ems="4"
                 android:gravity="center"
                 android:text="取消"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/input_textSize" />
+                android:textSize="@dimen/input_textSize"
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/button_Confirm"
@@ -50,9 +51,10 @@
                 android:id="@+id/text_Input"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:background="@drawable/sharp_text_normal"
-                android:ems="20"
-                android:gravity="center_vertical|left"
+                android:ems="12"
+                android:gravity="center"
                 android:hint="沪A123456"
                 android:paddingVertical="@dimen/input_paddingVertical"
                 android:paddingLeft="150dp"
@@ -63,14 +65,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/text_Input"
                 android:layout_alignTop="@+id/text_Input"
                 android:layout_alignBottom="@+id/text_Input"
-                android:background="@color/key_color_pressed"
-                android:ems="4"
+                android:layout_toLeftOf="@+id/text_Input"
+                android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
-                android:text="车牌"
-                android:textColor="@android:color/black"
+                android:paddingHorizontal="30dp"
+                android:text="输入车牌"
+                android:textColor="@android:color/white"
                 android:textSize="@dimen/input_textSize" />
 
         </RelativeLayout>

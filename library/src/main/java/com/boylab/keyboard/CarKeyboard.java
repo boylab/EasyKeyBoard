@@ -5,10 +5,12 @@ import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boylab.callback.OnKeyboardListener;
 import com.boylab.easykeyboard.R;
@@ -104,7 +106,15 @@ public class CarKeyboard extends AbstractKeyboard implements View.OnClickListene
             }
         } else {
             String text = text_Input.getText().toString();
+
             if (text.length() < NUMBER_LENGTH) {
+                if (text.length() >= 1 && primaryCode >= '云'){
+                    /**
+                     * 不准再输入省份
+                     */
+                    Toast.makeText(mContext, "请点击拼音字母",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 text_Input.append(Character.toString((char) primaryCode));
             }
         }

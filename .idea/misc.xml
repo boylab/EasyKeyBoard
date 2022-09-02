@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/app/src/main/res/layout/activity_main.xml" value="0.1515625" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/cancel_bg_normal.xml" value="0.2585" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/cancel_bg_pressed.xml" value="0.2585" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/cancel_bg_selector.xml" value="0.2585" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/confirm_bg_normal.xml" value="0.328" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/confirm_bg_pressed.xml" value="0.328" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/confirm_bg_selector.xml" value="0.3115" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/key_bg_normal.xml" value="0.2585" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/key_bg_pressed.xml" value="0.2585" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/key_bg_selector.xml" value="0.2585" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/drawable/key_number_normal.xml" value="0.2585" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/layout/keyboard_car_number.xml" value="0.4055164319248826" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/layout/keyboard_identity.xml" value="0.109375" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/layout/keyboard_ip.xml" value="0.109375" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/layout/keyboard_number.xml" value="0.109375" />
+        <entry key="..\:/GitHubLib/boylab/EasyKeyBoard1/library/src/main/res/layout/keyboard_password.xml" value="0.109375" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

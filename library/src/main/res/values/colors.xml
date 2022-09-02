@@ -9,7 +9,7 @@
 
     <color name="key_stroke_color">#D2D2D2</color>
     <color name="key_color_normal">#FFFFFF</color>
-    <color name="key_color_pressed">#D2D2D2</color>
+    <color name="key_color_pressed">@android:color/holo_blue_light</color>
     <color name="key_text_color">#323232</color>
 
     <color name="key_ok_color">#1280FA</color>
